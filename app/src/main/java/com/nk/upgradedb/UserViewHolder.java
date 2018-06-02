@@ -12,6 +12,9 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
     public TextView image;
     @BindView(R.id.name)
     public TextView name;
+    @BindView(R.id.email)
+    public TextView email;
+
 
     public UserViewHolder(View itemView) {
         super(itemView);

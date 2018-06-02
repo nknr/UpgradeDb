@@ -60,10 +60,11 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == RC_ADD_USER && resultCode == Activity.RESULT_OK && data != null) {
             String firstName = data.getStringExtra("first_name");
             String lastName = data.getStringExtra("last_name");
+            String email = data.getStringExtra("email");
 
-            userArrayList.add(new User(userArrayList.size(), firstName, lastName));
+            userArrayList.add(new User(userArrayList.size(), firstName, lastName,email));
             adapter.notifyItemInserted(userArrayList.size());
-            boolean isAdded = db.addUser(firstName, lastName);
+            boolean isAdded = db.addUser(firstName, lastName,email);
             Toast.makeText(this, "" + isAdded, Toast.LENGTH_SHORT).show();
         }
     }

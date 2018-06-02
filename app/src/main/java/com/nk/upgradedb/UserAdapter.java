@@ -36,6 +36,7 @@ public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         User user = userArrayList.get(viewHolder.getAdapterPosition());
         String strName = mContext.getResources().getString(R.string.name, user.getFirstName(), user.getLastName());
         viewHolder.name.setText(strName);
+        viewHolder.email.setText(user.getEmail());
         String shortName = String.valueOf(user.getFirstName().charAt(0)) + String.valueOf(user.getLastName().charAt(0));
         viewHolder.image.setText(shortName);
         viewHolder.image.setBackground(getCircularBackground(getMatColor()));

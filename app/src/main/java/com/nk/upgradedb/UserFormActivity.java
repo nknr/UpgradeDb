@@ -18,6 +18,8 @@ public class UserFormActivity extends AppCompatActivity {
     TextInputLayout firstNameInputLayout;
     @BindView(R.id.last_name_input_layout)
     TextInputLayout lastNameInputLayout;
+    @BindView(R.id.email_input_layout)
+    TextInputLayout emailInputLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +27,17 @@ public class UserFormActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_form);
         ButterKnife.bind(this);
     }
+
     @OnClick(R.id.submit)
     protected void onSubmit() {
         String firstName = Objects.requireNonNull(firstNameInputLayout.getEditText()).getText().toString().trim();
         String lastName = Objects.requireNonNull(lastNameInputLayout.getEditText()).getText().toString().trim();
+        String email = Objects.requireNonNull(emailInputLayout.getEditText()).getText().toString().trim();
 
         Intent intent = new Intent();
         intent.putExtra("first_name", firstName);
         intent.putExtra("last_name", lastName);
+        intent.putExtra("email", email);
         setResult(Activity.RESULT_OK, intent);
         finish();
     }
